@@ -9,8 +9,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.util.Iterator;
 // https://java-online.ru/java-excel-read.xhtml
+//https://java-online.ru/java-excel.xhtml
+
 
 public interface ServiceXLSX {
     static void openXLSX(final String path) {
@@ -28,19 +29,15 @@ public interface ServiceXLSX {
             int interestPeriodTo = (int) sheet.getRow(3).getCell(CellReference.convertColStringToIndex("G")).getNumericCellValue();
             int paymentDate = (int) sheet.getRow(4).getCell(CellReference.convertColStringToIndex("B")).getNumericCellValue();
             Date loanDate = sheet.getRow(5).getCell(CellReference.convertColStringToIndex("B")).getDateCellValue();
-            System.out.println(loanSum + 1);
-            System.out.println(loanTerm + 1);
-            System.out.println(interestRate + 1);
-            System.out.println(interestPeriodType);
-            System.out.println(interestPeriodFrom + 1);
-            System.out.println(interestPeriodTo + 1);
-            System.out.println(paymentDate + 1);
-            System.out.println(loanDate);
 
+            Loan loan = new Loan(loanSum, loanTerm, interestRate, interestPeriodType, interestPeriodFrom, interestPeriodTo, paymentDate, loanDate);
+
+            System.out.println("+------------------------- Получено -------------------------+");
+            loan.printInfo();
+            System.out.println("+------------------------------------------------------------+");
         } catch (IOException | InvalidFormatException e) {
             e.printStackTrace();
         }
 
     }
-
 }
