@@ -14,7 +14,7 @@ import java.util.Date;
 
 
 public interface ServiceXLSX {
-    static void openXLSX(final String path) {
+    static Loan openXLSX(final String path) {
         try {
             File file = new File(path);
             XSSFWorkbook wb = (XSSFWorkbook) WorkbookFactory.create(file);      // открываем файл
@@ -33,11 +33,12 @@ public interface ServiceXLSX {
             Loan loan = new Loan(loanSum, loanTerm, interestRate, interestPeriodType, interestPeriodFrom, interestPeriodTo, paymentDate, loanDate);
 
             System.out.println("+------------------------- Получено -------------------------+");
-            loan.printInfo();
-            System.out.println("+------------------------------------------------------------+");
+//            loan.printInfo();
+//            System.out.println("+------------------------------------------------------------+");
+            return loan;
         } catch (IOException | InvalidFormatException e) {
             e.printStackTrace();
+            return new Loan();
         }
-
     }
 }
