@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3013b0e8-1b72-40bf-bfff-957841fd22f0" name="Changes" comment="Класс Loan с информацией о кредите.">
+    <list default="true" id="3013b0e8-1b72-40bf-bfff-957841fd22f0" name="Changes" comment="Работает рассчет первой выплаты по аннуитетной схеме.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Loan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ServiceXLSX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ServiceXLSX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example_in.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example_in.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/example_in.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -84,9 +84,21 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/1292354/IdeaProjects/hw1/src/main/resources&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\1292354\IdeaProjects\hw1\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
@@ -141,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696177495216</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Работает рассчет первой выплаты по аннуитетной схеме.">
+      <created>1696328691784</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696328691785</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +190,7 @@
     <MESSAGE value="Start project 1." />
     <MESSAGE value="Чтение из .xlsx." />
     <MESSAGE value="Класс Loan с информацией о кредите." />
-    <option name="LAST_COMMIT_MESSAGE" value="Класс Loan с информацией о кредите." />
+    <MESSAGE value="Работает рассчет первой выплаты по аннуитетной схеме." />
+    <option name="LAST_COMMIT_MESSAGE" value="Работает рассчет первой выплаты по аннуитетной схеме." />
   </component>
 </project>
