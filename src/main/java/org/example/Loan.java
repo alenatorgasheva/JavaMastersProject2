@@ -3,10 +3,7 @@ package org.example;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 public class Loan {
@@ -20,23 +17,6 @@ public class Loan {
     private int paymentDate;
     private Date loanDate;
     private String paymentType;
-
-    public int getLoanTerm() {
-        return loanTerm;
-    }
-
-    public void setLoanTerm(int loanTerm) {
-        this.loanTerm = loanTerm;
-    }
-
-    public String getPaymentType() {
-        return paymentType;
-    }
-
-    public void setPaymentType(String paymentType) {
-        this.paymentType = paymentType;
-    }
-
     private final List<Integer> leapYears = Arrays.asList(2000, 2020, 2040, 2060, 2080,
             2004, 2024, 2044, 2064, 2084,
             2008, 2028, 2048, 2068, 2088,
@@ -209,8 +189,7 @@ public class Loan {
         loanDate.setDate(loanDate.getDate() + daysBetween);
         currentDate.setMonth(currentDate.getMonth() + 1);
         daysBetween = daysBetween(currentDate, loanDate);                                               // число дней пользования заемными средствами
-        System.out.println(currentDate);
-        System.out.println(loanDate);
+
         paymentInterest = calculatePaymentInterest(loanDate, currentDate, loanLost);                    // сумма процентов
         paymentLoan = loanLost;                                                                         // сумма погашаемого долга
         paymentTotalMonth = paymentLoan + paymentInterest;
@@ -278,6 +257,28 @@ public class Loan {
 //        System.out.println(daysBetween);
         return paymentInterest;
     }
+
+    public int getLoanTerm() {
+        return loanTerm;
+    }
+
+    public void setLoanTerm(int loanTerm) {
+        this.loanTerm = loanTerm;
+    }
+
+    public String getPaymentType() {
+        if(paymentType.equals("differential")){
+            return "дифференцированные";
+        } else if (paymentType.equals("annuity")) {
+            return "аннуитетные";
+        }
+        return "";
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
+
 
     public double getLoanSum() {
         return loanSum;

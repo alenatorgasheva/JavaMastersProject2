@@ -6,27 +6,29 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.List;
 
-public class LoanForm extends JFrame {
-
-    private String PATHIN = "файл не выбран";
+public class LoanFormWind extends JFrame {
+    private String PATHIN = "C:/Users/1292354/Desktop/example_in.xlsx";
+//    private String PATHIN = "файл не выбран";
     private String sheetName = "data";
     private String paymentType = "differential";
 
-    public LoanForm() {
+    public LoanFormWind() {
         super("График платежей по кредиту");
-//        super.setSize(600, 600);
         super.setBounds(300, 100, 400, 600);
-        super.setPreferredSize(new Dimension(600, 100));
-        super.setLayout(new FlowLayout(FlowLayout.CENTER, 2, 3));
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container container = super.getContentPane();
-        container.setLayout(new GridLayout());
+        container.setLayout(new GridLayout(4,1,5,5));
+
+        JPanel panel1 = new JPanel();
+        JPanel panel2 = new JPanel();
+        JPanel panel3 = new JPanel();
+        JPanel panel4 = new JPanel();
 
         JLabel fileLabel = new JLabel("Выберите файл");
         JTextField filePATHIN = new JTextField(PATHIN);
+        filePATHIN.setPreferredSize(new Dimension(300, 20));
         JButton fileButton = new JButton("обзор");
         fileButton.addActionListener(new ActionListener() {
             @Override
@@ -54,6 +56,7 @@ public class LoanForm extends JFrame {
 
         JLabel sheetNameLabel = new JLabel("Название листа:");
         JTextField sheetNameField = new JTextField("data");
+        sheetNameField.setPreferredSize(new Dimension(350, 20));
 
         JLabel paymentTypeLabel = new JLabel("Вид платежей:");
         ButtonGroup bg = new ButtonGroup();
@@ -76,22 +79,26 @@ public class LoanForm extends JFrame {
                 } else {
                     paymentType = "annuity";
                 }
-//                JOptionPane.showMessageDialog(null, "Выбран файл: " + PATHIN + "\nЛист: " + sheetName);
-                ServiceWindows.tableWind(PATHIN, sheetName, paymentType);
+                ServiceWindows.loanInfoWind(PATHIN, sheetName, paymentType);
             }
         });
 
-        container.add(fileLabel);
-        container.add(filePATHIN);
-        container.add(fileButton);
+        panel1.add(fileLabel);
+        panel1.add(filePATHIN);
+        panel1.add(fileButton);
 
-        container.add(sheetNameLabel);
-        container.add(sheetNameField);
+        panel2.add(sheetNameLabel);
+        panel2.add(sheetNameField);
 
-        container.add(paymentTypeLabel);
-        container.add(paymentTypeButton1);
-        container.add(paymentTypeButton2);
+        panel3.add(paymentTypeLabel);
+        panel3.add(paymentTypeButton1);
+        panel3.add(paymentTypeButton2);
 
-        container.add(calcButton);
+        panel4.add(calcButton);
+
+        container.add(panel1);
+        container.add(panel2);
+        container.add(panel3);
+        container.add(panel4);
     }
 }

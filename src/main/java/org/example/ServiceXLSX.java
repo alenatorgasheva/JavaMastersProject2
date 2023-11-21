@@ -19,7 +19,7 @@ import java.util.List;
 //https://java-online.ru/java-excel.xhtml
 
 
-public interface ServiceXLSX {
+public class ServiceXLSX {
     static Loan openXLSX(String path, String sheetName) {
         try {
             File file = new File(path);
@@ -38,9 +38,6 @@ public interface ServiceXLSX {
 
             Loan loan = new Loan(loanSum, loanTerm, interestRate, interestPeriodType, interestPeriodFrom, interestPeriodTo, paymentDate, loanDate);
 
-            System.out.println(">>> Данные считаны.");
-//            loan.printInfo();
-//            System.out.println();
             return loan;
         } catch (IOException | InvalidFormatException e) {
             e.printStackTrace();

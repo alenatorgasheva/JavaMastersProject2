@@ -47,7 +47,7 @@ public class BookTableModel extends AbstractTableModel {
     }
 
     public void addData(List<List<String>> data) {
-        String[] rowTable = new String[getColumnCount()];
+        String[] rowTable;
         for (int i = 0; i < data.size(); i++) {
             rowTable = data.get(i).toArray(new String[0]);
             dataArrayList.add(rowTable);

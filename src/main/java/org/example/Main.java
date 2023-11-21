@@ -5,7 +5,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ServiceWindows.firstWind();
+//        String PATHIN = "C:/Users/1292354/IdeaProjects/hw1/src/main/resources/example_in.xlsx";
+//        String path = PATHIN.substring(0,PATHIN.lastIndexOf(".xlsx"))+"_calc.xlsx";
+//        System.out.println(path);
+
+        ServiceWindows service = new ServiceWindows();
+        service.start();
 
 //        String PATHIN = "C:/Users/1292354/IdeaProjects/hw1/src/main/resources/example_in.xlsx";
 //        String sheetName = "data";
@@ -13,11 +18,6 @@ public class Main {
 //        Loan loan = ServiceXLSX.openXLSX(PATHIN, sheetName);
 //        loan.setPaymentType("annuity");
 //        List<List<String>> data = loan.calculateSchedule();
-//
-//        LoanTable winTable = new LoanTable("аннуитетные");
-//        winTable.addData(data);
-//        winTable.setVisible(true);
-//        winTable.pack();
 
 //        Scanner scanner = new Scanner(System.in);
 ////        System.out.println("Введите путь к таблице с данными: ");
