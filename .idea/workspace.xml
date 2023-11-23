@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3013b0e8-1b72-40bf-bfff-957841fd22f0" name="Changes" comment="Окна готовы. Добавила исключения с файлами.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/errors/FileProblemException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/errors/NotCorrectFileException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/examples/correct-table.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/windows/ErrorWind.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BookTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/windows/BookTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Loan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoanFormWind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/windows/LoanFormWind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoanInfoWind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/windows/LoanInfoWind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoanSaveWind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/windows/LoanSaveWind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoanTableWind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/windows/LoanTableWind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ServiceWindows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ServiceWindows.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ServiceXLSX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ServiceXLSX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example_in.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/examples/example_in.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700559702495</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Окна готовы. Добавила исключения с файлами.">
+      <created>1700719335564</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700719335564</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
