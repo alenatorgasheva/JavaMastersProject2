@@ -1,22 +1,25 @@
-package org.example;
+package main.windows;
+
+import main.ServiceWindows;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 public class LoanFormWind extends JFrame {
-    private String PATHIN = "C:/Users/1292354/Desktop/example_in.xlsx";
-//    private String PATHIN = "файл не выбран";
+    private String PATHIN = "файл не выбран";
     private String sheetName = "data";
     private String paymentType = "differential";
 
-    public LoanFormWind() {
+    public LoanFormWind(String newPATHIN) {
         super("График платежей по кредиту");
         super.setBounds(300, 100, 400, 600);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        if (!newPATHIN.equals("")){
+            PATHIN = newPATHIN;
+        }
 
         Container container = super.getContentPane();
         container.setLayout(new GridLayout(4,1,5,5));
@@ -30,28 +33,22 @@ public class LoanFormWind extends JFrame {
         JTextField filePATHIN = new JTextField(PATHIN);
         filePATHIN.setPreferredSize(new Dimension(300, 20));
         JButton fileButton = new JButton("обзор");
-        fileButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setFileFilter(new FileFilter() {
-                    @Override
-                    public boolean accept(File f) {
-                        if ((f.getName().endsWith("xlsx")) || (f.isDirectory())) {
-                            return true;
-                        }
-                        return false;
-                    }
+        fileButton.addActionListener(e -> {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileFilter(new FileFilter() {
+                @Override
+                public boolean accept(File f) {
+                    return (f.getName().endsWith("xlsx")) || (f.isDirectory());
+                }
 
-                    @Override
-                    public String getDescription() {
-                        return "необходимо использовать файл типа .xlsx";
-                    }
-                });
-                fileChooser.showOpenDialog(new JPanel());
-                PATHIN = String.valueOf(fileChooser.getSelectedFile());
-                filePATHIN.setText(PATHIN);
-            }
+                @Override
+                public String getDescription() {
+                    return "необходимо использовать файл типа .xlsx";
+                }
+            });
+            fileChooser.showOpenDialog(new JPanel());
+            PATHIN = String.valueOf(fileChooser.getSelectedFile());
+            filePATHIN.setText(PATHIN);
         });
 
         JLabel sheetNameLabel = new JLabel("Название листа:");
@@ -69,18 +66,15 @@ public class LoanFormWind extends JFrame {
         paymentTypeButton1.setSelected(true);
 
         JButton calcButton = new JButton("Рассчитать");
-        calcButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                sheetName = sheetNameField.getText();
-                if (paymentTypeButton1.isSelected()) {
-                    paymentType = "differential";
-                } else {
-                    paymentType = "annuity";
-                }
-                ServiceWindows.loanInfoWind(PATHIN, sheetName, paymentType);
+        calcButton.addActionListener(e -> {
+            setVisible(false);
+            sheetName = sheetNameField.getText();
+            if (paymentTypeButton1.isSelected()) {
+                paymentType = "differential";
+            } else {
+                paymentType = "annuity";
             }
+            ServiceWindows.loanInfoWind(PATHIN, sheetName, paymentType);
         });
 
         panel1.add(fileLabel);

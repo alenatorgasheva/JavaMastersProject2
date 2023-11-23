@@ -1,17 +1,15 @@
-package org.example;
+package main;
 
-import org.apache.poi.hssf.model.InternalSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import main.errors.FileProblemException;
+import main.errors.NotCorrectFileException;
 import org.apache.poi.hssf.util.CellReference;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +18,7 @@ import java.util.List;
 
 
 public class ServiceXLSX {
-    static Loan openXLSX(String path, String sheetName) {
+    static Loan openXLSX(String path, String sheetName) throws FileProblemException, NotCorrectFileException {
         try {
             File file = new File(path);
             XSSFWorkbook wb = (XSSFWorkbook) WorkbookFactory.create(file);      // открываем файл
@@ -40,14 +38,15 @@ public class ServiceXLSX {
 
             return loan;
         } catch (IOException | InvalidFormatException e) {
-            e.printStackTrace();
-            return new Loan();
+            throw new FileProblemException();
+        } catch (NullPointerException e) {
+            throw new NotCorrectFileException();
         }
     }
 
-    static XSSFSheet createSheet(XSSFWorkbook wb, String sheetName) {
+    static XSSFSheet createSheet(XSSFWorkbook wb) {
         // настраиваем лист в таблице
-        XSSFSheet sheet = wb.createSheet(sheetName);
+        XSSFSheet sheet = wb.createSheet("schedule");
         sheet.setColumnWidth(0, 1000);
         sheet.setColumnWidth(1, 4300);
         sheet.setColumnWidth(2, 4000);
@@ -106,9 +105,9 @@ public class ServiceXLSX {
         }
     }
 
-    static void writeXLSX(String path, String sheetName, List<List<String>> data) {
+    static void writeXLSX(String path, List<List<String>> data) {
         XSSFWorkbook wb = new XSSFWorkbook();
-        XSSFSheet sheet = createSheet(wb, sheetName);
+        XSSFSheet sheet = createSheet(wb);
         createHeader(wb, sheet);
         for (int i = 0; i < data.size(); i++) {
             addRow(sheet, i+1, data.get(i));

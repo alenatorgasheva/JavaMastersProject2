@@ -1,4 +1,4 @@
-package org.example;
+package main;
 
 
 import java.text.DateFormat;
@@ -7,7 +7,7 @@ import java.util.*;
 
 
 public class Loan {
-    private DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+    private final DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
     private double loanSum;
     private int loanTerm;
     private double interestRate;
@@ -54,13 +54,13 @@ public class Loan {
     }
 
     public List<List<String>> calculateSchedule() {
-        if (paymentType == "annuity") {
+        if (paymentType.equals("annuity")) {
             return annuity();
-        } else if (paymentType == "differential") {
+        } else if (paymentType.equals("differential")) {
             return differential();
         } else {
             List<List<String>> data = new ArrayList<>();
-            List<String> dataRow = Arrays.asList("Не выбран тип платежей.");
+            List<String> dataRow = List.of("Не выбран тип платежей.");
             data.add(dataRow);
             return data;
         }

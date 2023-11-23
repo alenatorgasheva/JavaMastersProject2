@@ -1,19 +1,16 @@
-package org.example;
+package main.windows;
+
+import main.ServiceWindows;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.util.List;
 
 public class LoanTableWind extends JFrame {
 
-    private String PATHOUT = "файл не выбран";
-    private BookTableModel btm = new BookTableModel(); // модель таблицы
+    private final BookTableModel btm = new BookTableModel(); // модель таблицы
 
-    public LoanTableWind(String paymentType, String PATHIN) {
+    public LoanTableWind(String paymentType) {
         super("График платежей по кредиту (" + paymentType + " платежи)");
         super.setBounds(300, 100, 800, 600);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,21 +34,15 @@ public class LoanTableWind extends JFrame {
                 new Insets(1, 1, 1, 1), 0, 0));
 
         JButton saveButton = new JButton("Сохранить");
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                ServiceWindows.saveWind();
-            }
+        saveButton.addActionListener(e -> {
+            setVisible(false);
+            ServiceWindows.saveWind();
         });
 
         JButton endButton = new JButton("Завершить");
-        endButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                System.exit(0);
-            }
+        endButton.addActionListener(e -> {
+            setVisible(false);
+            System.exit(0);
         });
         panel3.add(saveButton);
         panel3.add(endButton);

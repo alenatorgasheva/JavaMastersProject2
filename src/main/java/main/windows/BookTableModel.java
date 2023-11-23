@@ -1,4 +1,4 @@
-package org.example;
+package main.windows;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.List;
 
 public class BookTableModel extends AbstractTableModel {
 
-    private int columnCount = 7;
+    private final int columnCount = 7;
     private ArrayList<String[]> dataArrayList = new ArrayList<String[]>();
 
     public void BookTableModel() {

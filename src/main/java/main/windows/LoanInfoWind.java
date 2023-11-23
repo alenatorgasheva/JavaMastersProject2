@@ -1,17 +1,16 @@
-package org.example;
+package main.windows;
+
+import main.Loan;
+import main.ServiceWindows;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
 public class LoanInfoWind extends JFrame {
-    private DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+    private final DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
     public LoanInfoWind(Loan loan) {
         super("График платежей по кредиту");
@@ -60,21 +59,15 @@ public class LoanInfoWind extends JFrame {
         panel2.add(panel2r);
 
         JButton returnButton = new JButton("Вернуться");
-        returnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                ServiceWindows.firstWind();
-            }
+        returnButton.addActionListener(e -> {
+            setVisible(false);
+            ServiceWindows.firstWind();
         });
 
         JButton calcButton = new JButton("Рассчитать");
-        calcButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                ServiceWindows.tableWind();
-            }
+        calcButton.addActionListener(e -> {
+            setVisible(false);
+            ServiceWindows.tableWind();
         });
 
         panel3.add(returnButton);

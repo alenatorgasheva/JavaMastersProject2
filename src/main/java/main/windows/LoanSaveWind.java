@@ -1,9 +1,9 @@
-package org.example;
+package main.windows;
+
+import main.ServiceWindows;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class LoanSaveWind extends JFrame {
     public LoanSaveWind(String PATHOUT) {
@@ -24,21 +24,15 @@ public class LoanSaveWind extends JFrame {
         panel2.add(text);
 
         JButton returnButton = new JButton("Вернуться");
-        returnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                ServiceWindows.tableWind();
-            }
+        returnButton.addActionListener(e -> {
+            setVisible(false);
+            ServiceWindows.tableWind();
         });
 
         JButton endButton = new JButton("Завершить");
-        endButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                System.exit(0);
-            }
+        endButton.addActionListener(e -> {
+            setVisible(false);
+            System.exit(0);
         });
         panel3.add(returnButton);
         panel3.add(endButton);
