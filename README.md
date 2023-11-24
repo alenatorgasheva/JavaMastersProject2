@@ -24,5 +24,5 @@
 3. Программа выводит график платежей в таблице во всплывающем окне.
 3. Программа сохраняет график платежей в таблице.
 
-Пример таблицы с входными данными: main/examples/example_in.xlsx
+Пример корректной таблицы с входными данными: main/examples/example_in.xlsx
 <br> ![Корректная таблица](https://github.com/alenatorgasheva/JavaMastersProjects/blob/develop/src/main/java/main/examples/correct-table.jpg)
