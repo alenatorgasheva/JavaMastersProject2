@@ -1,5 +1,7 @@
 package main.windows;
 
+import main.ServiceWindows;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -18,11 +20,19 @@ public class ErrorWind extends JFrame {
         JLabel title = new JLabel("Ошибка: " + errorText);
         panel1.add(title);
 
+        JButton returnButton = new JButton("Вернуться");
+        returnButton.addActionListener(e -> {
+            setVisible(false);
+            ServiceWindows.formWind();
+        });
+
         JButton endButton = new JButton("Завершить");
         endButton.addActionListener(e -> {
             setVisible(false);
             System.exit(0);
         });
+
+        panel3.add(returnButton);
         panel3.add(endButton);
 
         container.add(panel1, BorderLayout.NORTH);

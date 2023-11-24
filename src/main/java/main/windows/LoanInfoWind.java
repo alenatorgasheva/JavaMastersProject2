@@ -61,7 +61,7 @@ public class LoanInfoWind extends JFrame {
         JButton returnButton = new JButton("Вернуться");
         returnButton.addActionListener(e -> {
             setVisible(false);
-            ServiceWindows.firstWind();
+            ServiceWindows.formWind();
         });
 
         JButton calcButton = new JButton("Рассчитать");

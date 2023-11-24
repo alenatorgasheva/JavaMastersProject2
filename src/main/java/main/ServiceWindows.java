@@ -1,7 +1,6 @@
 package main;
 
-import main.errors.FileProblemException;
-import main.errors.NotCorrectFileException;
+import main.errors.*;
 import main.windows.*;
 
 public class ServiceWindows {
@@ -10,7 +9,7 @@ public class ServiceWindows {
     private static String PATHOUT = "файл не выбран";
     private static Loan loan = new Loan();
 
-    public static void firstWind() {
+    public static void formWind() {
         LoanFormWind winForm = new LoanFormWind(PATHIN);
         winForm.setVisible(true);
         winForm.pack();
@@ -32,7 +31,8 @@ public class ServiceWindows {
             LoanInfoWind winInfo = new LoanInfoWind(loan);
             winInfo.setVisible(true);
             winInfo.pack();
-        } catch (FileProblemException e) {
+        } catch (FileProblemException | NegativeLoanTermException | NegativeInterestRateException |
+                 NegativeLoanSumException | PaymentDateOutOfRangeException e) {
             errorWind(e.toString(), false);
         }  catch (NotCorrectFileException e) {
             errorWind(e.toString(), true);
@@ -59,6 +59,6 @@ public class ServiceWindows {
     }
 
     public void start() {
-        firstWind();
+        formWind();
     }
 }

@@ -1,6 +1,11 @@
 package main;
 
 
+import main.errors.NegativeInterestRateException;
+import main.errors.NegativeLoanSumException;
+import main.errors.NegativeLoanTermException;
+import main.errors.PaymentDateOutOfRangeException;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -28,14 +33,30 @@ public class Loan {
 
     public Loan(double loanSumIn, int loanTermIn, double interestRateIn,
                 String interestPeriodTypeIn, int interestPeriodFromIn, int interestPeriodToIn,
-                int paymentDateIn, Date loanDateIn) {
-        loanSum = loanSumIn;
-        loanTerm = loanTermIn;
-        interestRate = interestRateIn / 100;
+                int paymentDateIn, Date loanDateIn) throws NegativeLoanSumException, NegativeLoanTermException, NegativeInterestRateException, PaymentDateOutOfRangeException {
+        if (loanSumIn > 0) {
+            loanSum = loanSumIn;
+        } else {
+            throw new NegativeLoanSumException();
+        }
+        if (loanTermIn > 0) {
+            loanTerm = loanTermIn;
+        } else {
+            throw new NegativeLoanTermException();
+        }
+        if (interestRateIn >= 0) {
+            interestRate = interestRateIn / 100;
+        } else {
+            throw new NegativeInterestRateException();
+        }
         interestPeriodType = interestPeriodTypeIn;
         interestPeriodFrom = interestPeriodFromIn;
         interestPeriodTo = interestPeriodToIn;
-        paymentDate = paymentDateIn;
+        if ((31 >= paymentDateIn) && (paymentDateIn >= 1)) {
+            paymentDate = paymentDateIn;
+        } else {
+            throw new PaymentDateOutOfRangeException();
+        }
         loanDate = loanDateIn;
     }
 
@@ -95,7 +116,7 @@ public class Loan {
 
         double interestRateMonth = interestRate / 12;       // процентная ставка в месяц
         double loanLost = loanSum;                          // остаток долга
-        double annuityCoef = interestRateMonth / (1 - Math.pow((1 + interestRateMonth), (-(loanTerm-1))));
+        double annuityCoef = interestRateMonth / (1 - Math.pow((1 + interestRateMonth), (-(loanTerm - 1))));
         double paymentTotalMonth = Math.round(loanLost * annuityCoef * 100.0) / 100.0; // ежемесячный платеж
         int daysBetween;                                    // число дней пользования заемными средствами
         double paymentInterest;                             // сумма процентов
@@ -124,7 +145,11 @@ public class Loan {
 
         for (int i = 2; i < loanTerm; i++) {
             loanDate.setDate(loanDate.getDate() + daysBetween);
-            currentDate.setMonth(currentDate.getMonth() + 1);
+            if (currentDate.getDate() != paymentDate) {
+                currentDate.setDate(paymentDate);
+            } else {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+            }
             daysBetween = daysBetween(currentDate, loanDate);                                               // число дней пользования заемными средствами
             paymentInterest = calculatePaymentInterest(loanDate, currentDate, loanLost); // сумма процентов
             paymentLoan = paymentTotalMonth - paymentInterest;                                              // сумма погашаемого долга
@@ -135,7 +160,11 @@ public class Loan {
 
         // Последний платеж
         loanDate.setDate(loanDate.getDate() + daysBetween);
-        currentDate.setMonth(currentDate.getMonth() + 1);
+        if (currentDate.getDate() != paymentDate) {
+            currentDate.setDate(paymentDate);
+        } else {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+        }
         daysBetween = daysBetween(currentDate, loanDate);                                               // число дней пользования заемными средствами
 
         paymentInterest = calculatePaymentInterest(loanDate, currentDate, loanLost);                    // сумма процентов
@@ -177,7 +206,11 @@ public class Loan {
 
         for (int i = 2; i < (loanTerm); i++) {
             loanDate.setDate(loanDate.getDate() + daysBetween);
-            currentDate.setMonth(currentDate.getMonth() + 1);
+            if (currentDate.getDate() != paymentDate) {
+                currentDate.setDate(paymentDate);
+            } else {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+            }
             daysBetween = daysBetween(currentDate, loanDate);
             paymentInterest = calculatePaymentInterest(loanDate, currentDate, loanLost);
             paymentTotalMonth = paymentLoan + paymentInterest;                                              // сумма погашаемого долга
@@ -187,7 +220,11 @@ public class Loan {
         }
 
         loanDate.setDate(loanDate.getDate() + daysBetween);
-        currentDate.setMonth(currentDate.getMonth() + 1);
+        if (currentDate.getDate() != paymentDate) {
+            currentDate.setDate(paymentDate);
+        } else {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+        }
         daysBetween = daysBetween(currentDate, loanDate);                                               // число дней пользования заемными средствами
 
         paymentInterest = calculatePaymentInterest(loanDate, currentDate, loanLost);                    // сумма процентов
@@ -267,7 +304,7 @@ public class Loan {
     }
 
     public String getPaymentType() {
-        if(paymentType.equals("differential")){
+        if (paymentType.equals("differential")) {
             return "дифференцированные";
         } else if (paymentType.equals("annuity")) {
             return "аннуитетные";

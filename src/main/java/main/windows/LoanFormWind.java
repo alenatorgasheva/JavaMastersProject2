@@ -8,7 +8,8 @@ import java.awt.*;
 import java.io.File;
 
 public class LoanFormWind extends JFrame {
-    private String PATHIN = "файл не выбран";
+//    private String PATHIN = "файл не выбран";
+    private String PATHIN = "C:\\Users\\1292354\\Desktop\\in.xlsx";
     private String sheetName = "data";
     private String paymentType = "differential";
 
@@ -17,9 +18,9 @@ public class LoanFormWind extends JFrame {
         super.setBounds(300, 100, 400, 600);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        if (!newPATHIN.equals("")){
-            PATHIN = newPATHIN;
-        }
+//        if (!newPATHIN.equals("")){
+//            PATHIN = newPATHIN;
+//        }
 
         Container container = super.getContentPane();
         container.setLayout(new GridLayout(4,1,5,5));

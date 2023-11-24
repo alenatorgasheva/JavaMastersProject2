@@ -1,7 +1,6 @@
 package main;
 
-import main.errors.FileProblemException;
-import main.errors.NotCorrectFileException;
+import main.errors.*;
 import org.apache.poi.hssf.util.CellReference;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
@@ -18,7 +17,7 @@ import java.util.List;
 
 
 public class ServiceXLSX {
-    static Loan openXLSX(String path, String sheetName) throws FileProblemException, NotCorrectFileException {
+    static Loan openXLSX(String path, String sheetName) throws FileProblemException, NotCorrectFileException, NegativeLoanTermException, NegativeInterestRateException, NegativeLoanSumException, PaymentDateOutOfRangeException {
         try {
             File file = new File(path);
             XSSFWorkbook wb = (XSSFWorkbook) WorkbookFactory.create(file);      // открываем файл
@@ -34,12 +33,14 @@ public class ServiceXLSX {
             int paymentDate = (int) sheet.getRow(4).getCell(CellReference.convertColStringToIndex("B")).getNumericCellValue();
             Date loanDate = sheet.getRow(5).getCell(CellReference.convertColStringToIndex("B")).getDateCellValue();
 
+            wb.close();
+
             Loan loan = new Loan(loanSum, loanTerm, interestRate, interestPeriodType, interestPeriodFrom, interestPeriodTo, paymentDate, loanDate);
 
             return loan;
         } catch (IOException | InvalidFormatException e) {
             throw new FileProblemException();
-        } catch (NullPointerException e) {
+        } catch (NullPointerException | IllegalStateException e) {
             throw new NotCorrectFileException();
         }
     }
