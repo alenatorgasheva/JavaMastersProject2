@@ -4,15 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3013b0e8-1b72-40bf-bfff-957841fd22f0" name="Changes" comment="Update pom.xml.">
+    <list default="true" id="3013b0e8-1b72-40bf-bfff-957841fd22f0" name="Changes" comment="Добавила ошибки валидации.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/ServiceRates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Loan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Loan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/ServiceWindows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ServiceWindows.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/ServiceXLSX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/ServiceXLSX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/ServiceXLSX.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/errors/FileProblemException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/errors/DVBankURLError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/errors/NegativeInterestRateException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/errors/OpenBankURLError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/errors/NegativeLoanSumException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/errors/NegativeLoanTermException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/errors/NotCorrectFileException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/errors/PaymentDateOutOfRangeException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/examples/correct-table.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/examples/example_in.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/windows/BookTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/windows/BookTableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/windows/ErrorWind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/windows/ErrorWind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/windows/LoanFormWind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/windows/LoanFormWind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/windows/LoanInfoWind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/windows/LoanInfoWind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/windows/LoanFormWind.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/windows/LoanInfoWind.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/windows/LoanSaveWind.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/windows/LoanTableWind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/windows/RatesWind.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +83,11 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="workspaceImportEnabled" value="true" />
@@ -91,12 +110,13 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE&quot;: &quot;right&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE&quot;: &quot;left&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/1292354/IdeaProjects/hw1/src/test/test2/LoanFormWind.form&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/1292354/IdeaProjects/hw2&quot;,
     &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/1292354/IdeaProjects/hw1/src/test/test2/LoanFormWind.form&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="main.windows" />
       <recent name="main.errors" />
       <recent name="org.example.errors" />
       <recent name="org.example" />
@@ -111,6 +131,7 @@
       <recent name="C:\Users\1292354\IdeaProjects\hw1\src\test" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="main.rates" />
       <recent name="org.example" />
     </key>
   </component>
@@ -121,6 +142,32 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TG" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.windows.TG" />
+      <module name="hw1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.windows.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Up7" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.windows.Up7" />
+      <module name="hw1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.windows.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -144,8 +191,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.main.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.TG" />
+        <item itemvalue="Application.Up7" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
@@ -216,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700721105553</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Добавила ошибки валидации.">
+      <created>1700803458395</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700803458395</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,6 +305,7 @@
     <MESSAGE value="Основной функционал, окна работают." />
     <MESSAGE value="Окна готовы. Добавила исключения с файлами." />
     <MESSAGE value="Update pom.xml." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update pom.xml." />
+    <MESSAGE value="Добавила ошибки валидации." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавила ошибки валидации." />
   </component>
 </project>

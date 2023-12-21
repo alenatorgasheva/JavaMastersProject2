@@ -6,8 +6,8 @@ import java.util.List;
 
 public class BookTableModel extends AbstractTableModel {
 
-    private final int columnCount = 7;
-    private ArrayList<String[]> dataArrayList = new ArrayList<String[]>();
+    private final int columnCount = 3;
+    private ArrayList<String[]> dataArrayList = new ArrayList<>();
 
     public void BookTableModel() {
         dataArrayList = new ArrayList<String[]>();
@@ -35,13 +35,9 @@ public class BookTableModel extends AbstractTableModel {
     @Override
     public String getColumnName(int columnIndex){
         return switch (columnIndex) {
-            case 0 -> "N";
-            case 1 -> "Дней пользования";
-            case 2 -> "Дата платежа";
-            case 3 -> "Сумма платежа";
-            case 4 -> "Процент";
-            case 5 -> "Погашаемый долг";
-            case 6 -> "Остаток";
+            case 0 -> "Банк";
+            case 1 -> "Покупка";
+            case 2 -> "Продажа";
             default -> "";
         };
     }

@@ -6,8 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ErrorWind extends JFrame {
-    public ErrorWind(String errorText, boolean addImg) {
-        super("Ошибка: " + errorText);
+    public ErrorWind(String errorText) {
+        super(errorText);
         super.setBounds(300, 100, 200, 200);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -20,10 +20,10 @@ public class ErrorWind extends JFrame {
         JLabel title = new JLabel("Ошибка: " + errorText);
         panel1.add(title);
 
-        JButton returnButton = new JButton("Вернуться");
+        JButton returnButton = new JButton("Обновить");
         returnButton.addActionListener(e -> {
             setVisible(false);
-            ServiceWindows.formWind();
+            ServiceWindows.mainWind("EUR");
         });
 
         JButton endButton = new JButton("Завершить");
@@ -36,13 +36,6 @@ public class ErrorWind extends JFrame {
         panel3.add(endButton);
 
         container.add(panel1, BorderLayout.NORTH);
-
-        if (addImg) {
-            String cwd = System.getProperty("user.dir");
-            JLabel correctTable = new JLabel("Пример корректной таблицы: " + cwd + "\\examples\\example_in.xlsx");
-            panel2.add(correctTable);
-            container.add(panel2, BorderLayout.CENTER);
-        }
 
         container.add(panel3, BorderLayout.SOUTH);
     }
